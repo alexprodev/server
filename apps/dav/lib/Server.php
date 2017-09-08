@@ -142,6 +142,8 @@ class Server {
 		if ($sendInvitations) {
 			$this->server->addPlugin(new IMipPlugin(
 				'dav', // TODO(leon): Retrieve dynamically, but where to find it? :(
+				\OC::$server->getUserSession()->getUser()->getUID(),
+				\OC::$server->getConfig(),
 				$mailer,
 				$logger,
 				$timezone,
